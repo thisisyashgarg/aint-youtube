@@ -6,4 +6,4 @@ export const YOUTUBE_LOGO_URL =
 export const RELATED_VIDEOS_URL =
   "https://youtube.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=awtTmjjH-C0&key=AIzaSyCfxDLscmoV3eg0fXxDYkGR8tmq_RHehZM";
 export const GET_COMMENTS_URL =
-  "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&videoId=_VB39Jo8mAQ&key=AIzaSyCfxDLscmoV3eg0fXxDYkGR8tmq_RHehZM";
+  "https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&key=AIzaSyCfxDLscmoV3eg0fXxDYkGR8tmq_RHehZM&videoId=";
