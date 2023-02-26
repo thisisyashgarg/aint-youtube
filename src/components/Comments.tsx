@@ -5,6 +5,8 @@ export type CommentsData = {
     topLevelComment: {
       snippet: {
         textOriginal: string;
+        authorDisplayName: string;
+        authorProfileImageUrl: string;
       };
     };
   };
@@ -12,11 +14,18 @@ export type CommentsData = {
 };
 
 const Comments: React.FunctionComponent<CommentsData> = ({ snippet }) => {
+  console.log(snippet);
+  const { authorDisplayName, authorProfileImageUrl, textOriginal } =
+    snippet.topLevelComment.snippet;
+
   return (
-    <div>
-      <img />
-      <p>Name</p>
-      <p>{snippet.topLevelComment.snippet.textOriginal}</p>
+    <div className="flex flex-col space-y-2 ">
+      <div className="flex items-center space-x-2">
+        <img className="rounded-full w-10" src={authorProfileImageUrl} />
+        <p className="font-bold">{authorDisplayName}</p>
+      </div>
+
+      <p className="text-gray-700">{textOriginal}</p>
     </div>
   );
 };
