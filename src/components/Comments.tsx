@@ -14,7 +14,6 @@ export type CommentsData = {
 };
 
 const Comments: React.FunctionComponent<CommentsData> = ({ snippet }) => {
-  console.log(snippet);
   const { authorDisplayName, authorProfileImageUrl, textOriginal } =
     snippet.topLevelComment.snippet;
 

@@ -9,3 +9,5 @@ export const GET_COMMENTS_URL =
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 export const CORS_HEROKU_PROXY = "https://cors-anywhere.herokuapp.com/";
+export const VIDEO_DETAILS_FROM_ID =
+  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key=AIzaSyCfxDLscmoV3eg0fXxDYkGR8tmq_RHehZM&id=";
