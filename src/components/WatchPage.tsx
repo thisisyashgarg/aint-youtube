@@ -51,7 +51,7 @@ const WatchPage = () => {
   // }
 
   return (
-    <div className="flex">
+    <div className="flex mt-20">
       <div className="m-5 ">
         <iframe
           width="880"
@@ -72,7 +72,7 @@ const WatchPage = () => {
           <div className="space-y-4">
             <h1 className="text-2xl font-bold">Comments</h1>
             {comments.map((data) => {
-              return <Comments {...data} key={data.id} />;
+              return <Comments {...data} key={data?.id} />;
             })}
           </div>
         </div>
@@ -81,7 +81,7 @@ const WatchPage = () => {
       <div className=" flex flex-col m-3 ">
         <h1 className="text-2xl font-bold pb-2">Suggested Videos</h1>
         {relatedVideos.map((data) => {
-          return <RelatedVideos {...data} key={data.etag} />;
+          return <RelatedVideos {...data} key={data?.etag} />;
         })}
       </div>
     </div>

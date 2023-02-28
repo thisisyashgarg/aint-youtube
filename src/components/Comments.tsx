@@ -15,7 +15,7 @@ export type CommentsData = {
 
 const Comments: React.FunctionComponent<CommentsData> = ({ snippet }) => {
   const { authorDisplayName, authorProfileImageUrl, textOriginal } =
-    snippet.topLevelComment.snippet;
+    snippet?.topLevelComment?.snippet;
 
   return (
     <div className="flex flex-col space-y-2 ">

@@ -1,4 +1,3 @@
-import { AnyAction } from "@reduxjs/toolkit";
 import { Link } from "react-router-dom";
 import { RelatedVideosType } from "./WatchPage";
 
@@ -9,6 +8,7 @@ const RelatedVideos: React.FunctionComponent<RelatedVideosType> = ({
   return (
     <Link to={"/watch?v=" + id?.videoId} className="flex space-x-2 m-2 ">
       <img
+        alt="thumbnail"
         className="w-[50%] self-center rounded-md	"
         src={snippet?.thumbnails?.medium?.url}
       />

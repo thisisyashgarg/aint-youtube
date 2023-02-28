@@ -1,5 +1,4 @@
-import { type } from "@testing-library/user-event/dist/type";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { YOUTUBE_API_URL } from "../utils/constants";
 import VideoCard from "./VideoCard";
@@ -25,15 +24,17 @@ const VideoContainer = () => {
   }, []);
 
   async function getVideos() {
+    console.log("api called");
     const data = await fetch(YOUTUBE_API_URL);
     const json = await data.json();
-    setVideos(json.items);
+    setVideos(await json.items);
   }
+
   return (
     <div className="flex flex-wrap ">
       {videos.map((video) => {
         return (
-          <Link to={"/watch?v=" + video.id} key={video.id}>
+          <Link to={"/watch?v=" + video?.id} key={video?.id}>
             <VideoCard {...video} />
           </Link>
         );

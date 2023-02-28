@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toggleMenu } from "../utils/AppSLice";
 import { HAMBURGER_LOGO_URL, YOUTUBE_LOGO_URL } from "../utils/constants";
 
@@ -31,7 +31,7 @@ const Header = () => {
   }
 
   return (
-    <div className="flex justify-between items-center shadow-lg h-16 px-4 ">
+    <div className="flex justify-between bg-white z-10 items-center shadow-lg h-16 px-4 fixed top-0 left-0 right-0 ">
       <div className="flex items-center p-2 ">
         <img
           alt="hamburger"

@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { RootState } from "../utils/store";
 
 const Sidebar = () => {
@@ -8,37 +7,48 @@ const Sidebar = () => {
   );
 
   return !isMenuOpen ? null : (
-    <div className=" border-r-slate-400 w-48 p-5 m-4 space-y-4 h-[85vh]">
+    <div
+      className={`fixed mt-16 drop-shadow-lg bg-white  w-52  space-y-4 h-screen p-5 leading-7 ${
+        isMenuOpen && "ease-in duration-900"
+      }`}
+    >
       <div>
         <ul>
-          <Link to={"/"}>
+          <a href="/">
             <li>Home</li>
-          </Link>
-
-          <li>shorts</li>
+          </a>
+          <li>Shorts</li>
           <li>Subscriptions</li>
         </ul>
       </div>
 
-      <div>
-        <h1 className="text-2xl font-medium ">Subscriptions</h1>
-        <ul>
-          <li>Movies</li>
-          <li>Sports</li>
-          <li>Gaming</li>
-          <li>Movies</li>
-        </ul>
-      </div>
+      <hr className="bg-gray-400" />
 
+      <ul>
+        <li>Library</li>
+        <li>History </li>
+        <li>Your Videos</li>
+        <li>Watch Later</li>
+        <li>Your Clips</li>
+      </ul>
+      <hr className="bg-gray-400" />
       <div>
-        <h1 className="text-2xl font-medium ">Watch Later</h1>
+        <h1 className="text-2xl font-medium ">Explore Now</h1>
         <ul>
-          <li>Movies</li>
-          <li>Sports</li>
-          <li>Gaming</li>
-          <li>Movies</li>
+          <li>Trending</li>
+          <li>Shopping</li>
+          <li>Music</li>
+          <li>FIlms</li>
+          <li>Live</li>
         </ul>
       </div>
+      <hr className="bg-gray-400" />
+      <ul>
+        <li>Settings</li>
+        <li>Report History</li>
+        <li>Help</li>
+        <li>Send Feedback</li>
+      </ul>
     </div>
   );
 };
