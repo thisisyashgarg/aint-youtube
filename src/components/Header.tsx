@@ -1,41 +1,35 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { toggleMenu } from "../utils/AppSLice";
-import {
-  CORS_HEROKU_PROXY,
-  HAMBURGER_LOGO_URL,
-  YOUTUBE_LOGO_URL,
-  YOUTUBE_SEARCH_API,
-} from "../utils/constants";
+import { HAMBURGER_LOGO_URL, YOUTUBE_LOGO_URL } from "../utils/constants";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
 
-  console.log(searchQuery);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     getSearchsuggestions();
+  //   }, 300);
+  //   return () => {
+  //     clearTimeout(timer);
+  //   };
+  // }, [searchQuery]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      getSearchsuggestions();
-    }, 300);
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [searchQuery]);
-
-  async function getSearchsuggestions() {
-    const data = await fetch(
-      CORS_HEROKU_PROXY +
-        "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" +
-        searchQuery
-    );
-    // const json = await data.json();
-    console.log(await data.json());
-  }
+  // async function getSearchsuggestions() {
+  //   const data = await fetch(
+  //     CORS_HEROKU_PROXY +
+  //       "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" +
+  //       searchQuery
+  //   );
+  //   // const json = await data.json();
+  //   console.log(await data.json());
+  // }
 
   function toggleSidebar() {
     dispatch(toggleMenu());
   }
+
   return (
     <div className="flex justify-between items-center shadow-lg h-16 px-4 ">
       <div className="flex items-center p-2 ">
@@ -52,6 +46,7 @@ const Header = () => {
 
       <div className="flex mx-6 items-center">
         <input
+          placeholder="Search"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           type="text"

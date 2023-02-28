@@ -1,0 +1,23 @@
+import { AnyAction } from "@reduxjs/toolkit";
+import { Link } from "react-router-dom";
+import { RelatedVideosType } from "./WatchPage";
+
+const RelatedVideos: React.FunctionComponent<RelatedVideosType> = ({
+  id,
+  snippet,
+}) => {
+  return (
+    <Link to={"/watch?v=" + id?.videoId} className="flex space-x-2 m-2 ">
+      <img
+        className="w-[50%] self-center rounded-md	"
+        src={snippet?.thumbnails?.medium?.url}
+      />
+      <div className="flex flex-col justify-around">
+        <h1 className="font-bold leading-4">{snippet?.title}</h1>
+        <p>{snippet?.channelTitle}</p>
+      </div>
+    </Link>
+  );
+};
+
+export default RelatedVideos;
