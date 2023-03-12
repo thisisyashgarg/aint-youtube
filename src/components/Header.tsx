@@ -1,11 +1,17 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { toggleMenu } from "../utils/AppSLice";
-import { HAMBURGER_LOGO_URL, YOUTUBE_LOGO_URL } from "../utils/constants";
+import {
+  HAMBURGER_LOGO_URL,
+  YOUTUBE_LOGO_URL,
+  YOUTUBE_SEARCH_API,
+} from "../utils/constants";
+import { VideoData } from "./VideoContainer";
 
 const Header = () => {
   const dispatch = useDispatch();
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState<Array<VideoData>>([]);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {
@@ -16,15 +22,12 @@ const Header = () => {
   //   };
   // }, [searchQuery]);
 
-  // async function getSearchsuggestions() {
-  //   const data = await fetch(
-  //     CORS_HEROKU_PROXY +
-  //       "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=" +
-  //       searchQuery
-  //   );
-  //   // const json = await data.json();
-  //   console.log(await data.json());
-  // }
+  async function getSearchSuggestions() {
+    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const json = await data.json();
+    setSearchResults(json.items);
+  }
+  console.log(searchResults);
 
   function toggleSidebar() {
     dispatch(toggleMenu());
@@ -52,7 +55,10 @@ const Header = () => {
           type="text"
           className="rounded-l-full border  border-gray-400 p-2 w-96 px-5"
         />
-        <button className="rounded-r-full border  border-gray-400 p-2">
+        <button
+          className="rounded-r-full border  border-gray-400 p-2"
+          onClick={getSearchSuggestions}
+        >
           Search
         </button>
       </div>

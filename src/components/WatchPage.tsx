@@ -48,8 +48,6 @@ const WatchPage = () => {
     getRelatedVideos(setRelatedVideos, RELATED_VIDEOS_URL, videoID);
   }, [videoID]);
 
-  console.log(videoDetails);
-
   async function getVideoDetailsFromID() {
     const data = await fetch(VIDEO_DETAILS_FROM_ID + videoID);
     const json = await data.json();
