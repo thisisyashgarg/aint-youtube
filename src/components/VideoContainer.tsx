@@ -13,7 +13,7 @@ export type VideoData = {
     };
     channelTitle: string;
   };
-  statistics: { viewCount: string };
+  statistics: { viewCount: string; commentCount: string };
   id: string;
 };
 
