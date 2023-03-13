@@ -7,7 +7,7 @@ import {
   RELATED_VIDEOS_URL,
   VIDEO_DETAILS_FROM_ID,
 } from "../utils/constants";
-import { getRelatedVideos } from "../utils/helper";
+import { getRelatedVideos, getVideoDetailsFromID } from "../utils/helper";
 import Comments from "./Comments";
 import { CommentsData } from "./Comments";
 import { getComments } from "../utils/helper";
@@ -41,18 +41,16 @@ const WatchPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("use effect ran");
+    console.log("dispatch");
     dispatch(closeMenu());
-    getVideoDetailsFromID();
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("use effect ran");
+    getVideoDetailsFromID(setVideoDetails, VIDEO_DETAILS_FROM_ID, videoID!);
     getComments(setComments, GET_COMMENTS_URL, videoID);
     getRelatedVideos(setRelatedVideos, RELATED_VIDEOS_URL, videoID);
   }, [videoID]);
-
-  async function getVideoDetailsFromID() {
-    const data = await fetch(VIDEO_DETAILS_FROM_ID + videoID);
-    const json = await data.json();
-    setVideoDetails(json.items[0]);
-  }
 
   return (
     <div className="flex mt-20">
@@ -86,7 +84,7 @@ const WatchPage = () => {
         </div>
       </div>
 
-      <div className=" flex flex-col m-3 ">
+      <div className=" flex flex-col m-1 ">
         <h1 className="text-2xl font-bold pb-2">Suggested Videos</h1>
         {relatedVideos.map((data) => {
           return <RelatedVideos {...data} key={data?.etag} />;

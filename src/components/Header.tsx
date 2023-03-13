@@ -27,7 +27,6 @@ const Header = () => {
     const json = await data.json();
     setSearchResults(json.items);
   }
-  console.log(searchResults);
 
   function toggleSidebar() {
     dispatch(toggleMenu());

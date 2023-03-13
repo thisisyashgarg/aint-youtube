@@ -18,3 +18,13 @@ export async function getRelatedVideos(
   const json = await data.json();
   setRelatedVideos(json.items);
 }
+
+export async function getVideoDetailsFromID(
+  setVideoDetails: Function,
+  VIDEO_DETAILS_FROM_ID: string,
+  videoID: string
+) {
+  const data = await fetch(VIDEO_DETAILS_FROM_ID + videoID);
+  const json = await data.json();
+  setVideoDetails(json.items[0]);
+}
