@@ -20,7 +20,11 @@ const Comments: React.FunctionComponent<CommentsData> = ({ snippet }) => {
   return (
     <div className="flex flex-col space-y-2 ">
       <div className="flex items-center space-x-2">
-        <img className="rounded-full w-10" src={authorProfileImageUrl} />
+        <img
+          className="rounded-full w-10"
+          src={authorProfileImageUrl}
+          alt="dp"
+        />
         <p className="font-bold">{authorDisplayName}</p>
       </div>
 
