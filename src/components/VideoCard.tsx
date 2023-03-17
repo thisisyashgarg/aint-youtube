@@ -15,7 +15,7 @@ const VideoCard: React.FunctionComponent<VideoData> = ({
           src={thumbnails.medium.url}
           className="rounded-lg w-72"
         />
-        <h3 className="font-semibold ">{title}</h3>
+        <h3 className="font-semibold pt-2 ">{title}</h3>
       </div>
 
       <div>
