@@ -13,7 +13,7 @@ const RelatedVideos: React.FunctionComponent<RelatedVideosType> = ({
         src={snippet?.thumbnails?.medium?.url}
       />
       <div className="flex flex-col justify-around">
-        <h1 className="font-bold leading-4">{snippet?.title}</h1>
+        <h1 className="text-base font-semibold leading-4">{snippet?.title}</h1>
         <p>{snippet?.channelTitle}</p>
       </div>
     </Link>
