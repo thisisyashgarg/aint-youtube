@@ -3,7 +3,7 @@ import VideoContainer from "./VideoContainer";
 
 const MainContainer = () => {
   return (
-    <div className={` flex flex-col m-4 mt-20`}>
+    <div className={` flex flex-col mt-20`}>
       <ButtonList />
       <VideoContainer />
     </div>

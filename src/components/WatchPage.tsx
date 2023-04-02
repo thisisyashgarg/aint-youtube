@@ -53,11 +53,10 @@ const WatchPage = () => {
   }, [videoID]);
 
   return (
-    <div className="flex mt-20">
-      <div className="m-5 ">
+    <div className="flex mt-20 overflow-hidden ">
+      <div className="m-5 w-[100vw]">
         <iframe
-          width="880"
-          height="440"
+          className="w-[100%] h-[60vh]"
           src={"https://www.youtube.com/embed/" + searchParams.get("v")}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
