@@ -1,6 +1,6 @@
-# Ain't Youtube ( Youtube Clone )
+# Ain't Youtube
 
-Ain't Youtube is a youtube clone
+Ain't Youtube is a video streaming app.
 
 ## Steps to run it on your system
 
